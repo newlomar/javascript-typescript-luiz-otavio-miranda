@@ -35,9 +35,17 @@ _   _   _   _   _   _   _   _   _   _
 
 const cpf1 = "705.484.450-52";
 const cpf2 = "070.987.720-03";
+const cpf3 = "111.111.111-11";
 
 const validaCPF = (cpf) => {
   const cpfSomenteDigitos = cpf.replace(/\D+/g, "");
+
+  if (
+    cpfSomenteDigitos.split("")[0].repeat(cpfSomenteDigitos.length) ===
+    cpfSomenteDigitos
+  )
+    return false;
+
   const arrCPF = cpfSomenteDigitos.split("");
 
   arrCPF.pop();
@@ -77,3 +85,4 @@ const validaCPF = (cpf) => {
 
 console.log(validaCPF(cpf1));
 console.log(validaCPF(cpf2));
+console.log(validaCPF(cpf3));
